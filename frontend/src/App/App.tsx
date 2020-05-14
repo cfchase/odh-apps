@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import { withRouter } from "react-router-dom";
+import {Page} from '@patternfly/react-core';
+import {Header, NavSidebar, Routes} from './components';
+
+
 import './App.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export const App = withRouter(() => {
+    const [isNavOpen, setIsNavOpen] = useState<boolean>(true);
 
-export default App;
+    const onNavToggle = () => {
+        setIsNavOpen(!isNavOpen);
+    }
+
+    return (
+        <Page
+            header={<Header isNavOpen={isNavOpen} onNavToggle={onNavToggle}/>}
+            sidebar={<NavSidebar isNavOpen={isNavOpen}/>}
+            className='app'>
+            <Routes/>
+        </Page>
+    );
+});
+
