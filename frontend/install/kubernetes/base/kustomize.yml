@@ -1,0 +1,6 @@
+commonLabels:
+  app: odh-apps-frontend
+resources:
+  - deployment.yml
+  - service.yml
+  - ingress.yml
