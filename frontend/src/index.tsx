@@ -5,6 +5,7 @@ import '@patternfly/patternfly/utilities/Spacing/spacing.css';
 import '@patternfly/react-core/dist/styles/base.css';
 import './index.scss';
 import {App} from './App';
+import {store} from './store'
 
 ReactDOM.render(
     <React.StrictMode>

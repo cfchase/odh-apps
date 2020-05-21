@@ -11,7 +11,7 @@ import {
   Text
 } from '@patternfly/react-core';
 
-export const Jupyter = () => (
+export const JupyterList = () => (
   <>
     <PageSection variant={PageSectionVariants.light}>
       <TextContent>

@@ -17,13 +17,13 @@ export const NotFound = () => (
             <EmptyState variant={EmptyStateVariant.full}>
                 <EmptyStateIcon icon={WarningTriangleIcon}/>
 
-                <Title headingLevel="h5" size="lg">
+                <Title headingLevel='h5' size='lg'>
                     Page Not Found
                 </Title>
                 <EmptyStateBody>
                     Uh oh, this page appears to be missing.  Move along.  Nothing to see here...
                 </EmptyStateBody>
-                <Button component="a" href="/" variant="primary">
+                <Button component='a' href='/' variant='primary'>
                     <HomeIcon/> Home
                 </Button>
             </EmptyState>

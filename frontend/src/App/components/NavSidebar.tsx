@@ -12,47 +12,12 @@ import {
     PageSidebar
 } from '@patternfly/react-core';
 
+import {
+    NavItemData,
+    NavGroupData,
+    navData
+} from '../utilities/NavData';
 
-type NavItemData = {
-    id: string,
-    label: string,
-    href: string
-}
-
-type NavGroupData = {
-    group: {
-        id: string,
-        title: string
-    },
-    children: NavItemData[]
-}
-
-const navDataList = [
-    {id: 'odh-apps', label: 'ODH Applications', href: '/odh-apps'},
-    {
-        group: {id: 'dev', title: 'Development'},
-        children: [
-            {id: 'jupyter', label: 'Jupyter', href: '/jupyter'},
-            {id: 'rstudio', label: 'RStudio', href: '/rstudio'}
-        ]
-    },
-    {
-        group: {id: 'training', title: 'Training'},
-        children: [
-            {id: 'argo', label: 'Argo', href: '/argo'},
-            {id: 'kf-pipelines', label: 'Kubeflow Pipelines', href: '/kf-pipelines'},
-            {id: 'tekton', label: 'Tekton', href: '/tekton'}
-        ]
-    },
-    {
-        group: {id: 'serving', title: 'Serving'},
-        children: [
-            {id: 'seldon', label: 'Seldon', href: '/seldon'},
-            {id: 'kf-serving', label: 'Kubeflow Pipelines', href: '/kf-serving'},
-            {id: 'tf-serving', label: 'Tensorflow Serving', href: '/tf-serving'}
-        ]
-    },
-]
 
 function createNavItem({id, label, href}: NavItemData, pathname: string): React.ReactNode {
     let isActive = pathname.startsWith(href);
@@ -91,7 +56,7 @@ interface Props {
 export const NavSidebar = ({isNavOpen}: Props) => {
     let routerLocation = useLocation();
 
-    const navItems = navDataList.map(item => {
+    const navItems = navData.map(item => {
         if (item.group) {
             return createNavGroup(item, routerLocation.pathname);
         }
